@@ -18,8 +18,8 @@ modules:
     sources:
       - type: archive
         strip-components: 0
-        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v1.1/adw-gtk3v1-1.tar.xz
-        sha256: cd65979bbcab2140cdfba2cfbaf378ac70252145b7c58fdbe4e14f965ddef8e6
+        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v1.2/adw-gtk3v1-2.tar.xz
+        sha256: 2487e45fa66d91051c965300e59fb2f9bae75a0130b40e6154b7de8f9dec1d9e
 
   - name: appdata
     buildsystem: simple
