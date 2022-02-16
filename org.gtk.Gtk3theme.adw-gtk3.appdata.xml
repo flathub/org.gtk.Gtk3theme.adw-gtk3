@@ -8,16 +8,4 @@
       <p>The theme from libadwaita ported to GTK-3</p>
   </description>
   <url type="homepage">https://github.com/lassekongo83/adw-gtk3</url>
-  <releases>
-		<release date="2022-02-09" version="1.1">
-			<description>
-				More tweaks and additions
-			</description>
-		</release>
-    <release date="2022-02-05" version="1.0.1">
-      <description>
-        Don't symlink the dark theme
-      </description>
-    </release>
-  </releases>
 </component>
