@@ -13,7 +13,6 @@ modules:
     buildsystem: simple
     build-commands:
       - install -d /usr/share/runtime/share/themes/adw-gtk3
-      - rm adw-gtk3/gtk-3.0/gtk-dark.css
       - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
     sources:
       - type: archive
