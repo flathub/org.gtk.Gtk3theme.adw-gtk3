@@ -9,22 +9,23 @@ appstream-compose: false
 separate-locales: false
 
 modules:
-  - name: adw-gtk3
-    buildsystem: simple
-    build-commands:
-      - install -d /usr/share/runtime/share/themes/adw-gtk3
-      - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
-    sources:
-      - type: archive
-        strip-components: 0
-        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v3.6/adw-gtk3v3-6.tar.xz
-        sha256: b73376cdcd0d2c9c5213c3348215c5205e08f3087260812478fb4f290c5000df
+- name: adw-gtk3
+  buildsystem: simple
+  build-commands:
+  - install -d /usr/share/runtime/share/themes/adw-gtk3
+  - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
+  sources:
+  - type: archive
+    strip-components: 0
+    url: https://github.com/lassekongo83/adw-gtk3/releases/download/v3.7/adw-gtk3v3-7.tar.xz
+    sha256: 3e3761ad0ae2304337a6bd85debf8502e9677d7a31a60dfd93547a00c76e307b
 
-  - name: appdata
-    buildsystem: simple
-    build-commands:
-      - install -Dm644 org.gtk.Gtk3theme.adw-gtk3.appdata.xml -t ${FLATPAK_DEST}/share/appdata
-      - appstream-compose --basename=org.gtk.Gtk3theme.adw-gtk3 --prefix=${FLATPAK_DEST} --origin=flatpak org.gtk.Gtk3theme.adw-gtk3
-    sources:
-      - type: file
-        path: org.gtk.Gtk3theme.adw-gtk3.appdata.xml
+- name: appdata
+  buildsystem: simple
+  build-commands:
+  - install -Dm644 org.gtk.Gtk3theme.adw-gtk3.appdata.xml -t ${FLATPAK_DEST}/share/appdata
+  - appstream-compose --basename=org.gtk.Gtk3theme.adw-gtk3 --prefix=${FLATPAK_DEST}
+    --origin=flatpak org.gtk.Gtk3theme.adw-gtk3
+  sources:
+  - type: file
+    path: org.gtk.Gtk3theme.adw-gtk3.appdata.xml
