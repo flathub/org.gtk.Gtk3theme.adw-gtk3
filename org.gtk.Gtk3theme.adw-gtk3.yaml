@@ -9,23 +9,29 @@ appstream-compose: false
 separate-locales: false
 
 modules:
-- name: adw-gtk3
-  buildsystem: simple
-  build-commands:
-  - install -d /usr/share/runtime/share/themes/adw-gtk3
-  - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
-  sources:
-  - type: archive
-    strip-components: 0
-    url: https://github.com/lassekongo83/adw-gtk3/releases/download/v4.0/adw-gtk3v4-0.tar.xz
-    sha256: 01182da2867fdd784aa9425dfb463eb03707b5ac355d613cec369dc7a0cfabc5
+  - name: adw-gtk3
+    buildsystem: simple
+    build-commands:
+      - install -d /usr/share/runtime/share/themes/adw-gtk3
+      - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
+    sources:
+      - type: archive
+        strip-components: 0
+        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v4.1/adw-gtk3v4-1.tar.xz
+        sha256: 8c7491c66efc23a72f8449719827e8a5e251b66fbf7d33d8e78e4bdd5934bd87
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest
+          version-query: .tag_name | sub("v"; "") | gsub("\\."; "-")
+          url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz")
+            | .browser_download_url
 
-- name: appdata
-  buildsystem: simple
-  build-commands:
-  - install -Dm644 org.gtk.Gtk3theme.adw-gtk3.appdata.xml -t ${FLATPAK_DEST}/share/appdata
-  - appstream-compose --basename=org.gtk.Gtk3theme.adw-gtk3 --prefix=${FLATPAK_DEST}
-    --origin=flatpak org.gtk.Gtk3theme.adw-gtk3
-  sources:
-  - type: file
-    path: org.gtk.Gtk3theme.adw-gtk3.appdata.xml
+  - name: appdata
+    buildsystem: simple
+    build-commands:
+      - install -Dm644 ${FLATPAK_ID}.appdata.xml -t ${FLATPAK_DEST}/share/appdata
+      - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak
+        ${FLATPAK_ID}
+    sources:
+      - type: file
+        path: org.gtk.Gtk3theme.adw-gtk3.appdata.xml
