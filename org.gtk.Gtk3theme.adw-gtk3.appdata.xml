@@ -8,4 +8,7 @@
       <p>The theme from libadwaita ported to GTK-3</p>
   </description>
   <url type="homepage">https://github.com/lassekongo83/adw-gtk3</url>
+  <releases>
+    <release version="4-8" date="2023-06-14"/>
+  </releases>
 </component>
