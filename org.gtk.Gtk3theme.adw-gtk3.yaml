@@ -14,6 +14,7 @@ modules:
     build-commands:
       - install -d /usr/share/runtime/share/themes/adw-gtk3
       - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
+      - cp -a adw-gtk3/gtk-4.0 /usr/share/runtime/share/themes/adw-gtk3
     sources:
       - type: archive
         strip-components: 0
@@ -23,8 +24,8 @@ modules:
           type: json
           url: https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest
           version-query: .tag_name | sub("v"; "") | gsub("\\."; "-")
-          url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz")
-            | .browser_download_url
+          url-query: |
+            .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz").browser_download_url
 
   - name: appdata
     buildsystem: simple
