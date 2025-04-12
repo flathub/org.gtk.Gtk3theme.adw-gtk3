@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="addon">
+  <id>org.gtk.Gtk3theme.adw-gtk3</id>
+  <extends>org.gtk.Gtk3theme</extends>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LGPL-2.1-only</project_license>
+  <name>adw-gtk3 GTK Theme</name>
+  <summary>The libadwaita theme ported to GTK 3</summary>
+  <description>
+    <p>This is a GTK 3 theme that mimics libadwaita (GNOME’s modern design language). It brings a consistent look to GTK 3 applications in Flatpak runtimes.</p>
+  </description>
+  <developer id="com.github.lassekongo83">
+    <name>lassekongo83</name>
+  </developer>
+  <url type="homepage">https://github.com/lassekongo83/adw-gtk3</url>
+</component>
