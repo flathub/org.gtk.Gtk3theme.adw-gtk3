@@ -1,37 +1,35 @@
 id: org.gtk.Gtk3theme.adw-gtk3
 branch: '3.22'
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 
 build-extension: true
-appstream-compose: false
 separate-locales: false
 
 modules:
   - name: adw-gtk3
     buildsystem: simple
+    no-autogen: true
     build-commands:
       - install -d /usr/share/runtime/share/themes/adw-gtk3
       - cp -a adw-gtk3/gtk-3.0 /usr/share/runtime/share/themes/adw-gtk3
     sources:
       - type: archive
         strip-components: 0
-        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v5.1/adw-gtk3v5-1.tar.xz
-        sha256: 8f11325d5f849c012a2c2b8304431ffd90e01a3073a3d2d26cf85018a697bbaf
+        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v5.8/adw-gtk3v5.8.tar.xz
+        sha256: 212fe070d4e6643fad56162c55541efef94fcd06a2d7f697b3bc14ee1313765d
         x-checker-data:
           type: json
           url: https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest
           version-query: .tag_name | sub("v"; "") | gsub("\\."; "-")
-          url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz")
-            | .browser_download_url
+          url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz") | .browser_download_url
 
-  - name: appdata
+  - name: metadata
     buildsystem: simple
+    no-autogen: true
     build-commands:
-      - install -Dm644 ${FLATPAK_ID}.appdata.xml -t ${FLATPAK_DEST}/share/appdata
-      - appstream-compose --basename=${FLATPAK_ID} --prefix=${FLATPAK_DEST} --origin=flatpak
-        ${FLATPAK_ID}
+      - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
     sources:
       - type: file
-        path: org.gtk.Gtk3theme.adw-gtk3.appdata.xml
+        path: org.gtk.Gtk3theme.adw-gtk3.metainfo.xml
