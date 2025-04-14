@@ -17,13 +17,14 @@ modules:
     sources:
       - type: archive
         strip-components: 0
-        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v5.8/adw-gtk3v5.8.tar.xz
-        sha256: 212fe070d4e6643fad56162c55541efef94fcd06a2d7f697b3bc14ee1313765d
+        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v5.9/adw-gtk3v5.9.tar.xz
+        sha256: dfd00e1c116d2ac37c36f13c35594b843102449930eb830334f3e2c2579f21f5
         x-checker-data:
           type: json
           url: https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest
           version-query: .tag_name | sub("v"; "")
-          url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz") | .browser_download_url
+          url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz")
+            | .browser_download_url
 
   - name: metadata
     buildsystem: simple
