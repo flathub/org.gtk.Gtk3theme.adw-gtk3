@@ -22,7 +22,7 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest
-          version-query: .tag_name | sub("v"; "") | gsub("\\."; "-")
+          version-query: .tag_name | sub("v"; "")
           url-query: .assets[] | select(.name=="adw-gtk3v" + $version + ".tar.xz") | .browser_download_url
 
   - name: metadata
