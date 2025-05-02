@@ -17,8 +17,8 @@ modules:
     sources:
       - type: archive
         strip-components: 0
-        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v6.0/adw-gtk3v6.0.tar.xz
-        sha256: 3c00d96c2f50da8107f8c2ae26f0e9a1958c0f3bd9fe49cc2915734e429fae33
+        url: https://github.com/lassekongo83/adw-gtk3/releases/download/v6.1/adw-gtk3v6.1.tar.xz
+        sha256: e7e1d15f6b46f050f95608fdfc5f643105e9948ecc2653dc463d197b4da3fd9f
         x-checker-data:
           type: json
           url: https://api.github.com/repos/lassekongo83/adw-gtk3/releases/latest
